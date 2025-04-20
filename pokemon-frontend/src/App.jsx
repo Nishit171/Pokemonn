@@ -13,7 +13,7 @@ function App() {
 
   const handleSingleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/api/pokemons/${name}`);
+    const res = await fetch(`https://pokemonbackend-production-ef16.up.railway.app/api/pokemons/${name}`);
     const data = await res.json();
     if (res.ok) {
       setPokemon(data);
@@ -26,7 +26,7 @@ function App() {
   const handleMultipleSubmit = async (e) => {
     e.preventDefault();
     const names = namesInput.split(',').map((n) => n.trim());
-    const res = await fetch('http://localhost:3000/api/pokemon', {
+    const res = await fetch('https://pokemonbackend-production-ef16.up.railway.app/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ names }),
@@ -42,7 +42,7 @@ function App() {
 
   const handleTypeSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/api/pokemons/type/${type.toLowerCase()}`);
+    const res = await fetch(`https://pokemonbackend-production-ef16.up.railway.app/api/pokemons/type/${type.toLowerCase()}`);
     const data = await res.json();
     if (res.ok) {
       setTypeFilteredList(data);
